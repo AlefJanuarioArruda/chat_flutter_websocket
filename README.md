@@ -31,7 +31,7 @@ com um implemento de mais uma api.
 
 ## Teste App Websocket  
 
-.Utilize dois Dispositvos Mobile para testar função chat, pode ser *Fisico ou Virtual*.
+.Crie ou Utilize dois Dispositvos Mobile para testar função chat, pode ser *Fisico ou Virtual*.
 
 
 .logo apos isto selecione dois usuarios diferentes, entre no chat.
