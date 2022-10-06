@@ -12,7 +12,7 @@ class InputMessage extends StatefulWidget {
   final String zipcode;
   final String website;
 
-  InputMessage({
+  const InputMessage({
     Key? key,
     required this.onSendMessage,
     required this.id,
@@ -39,8 +39,8 @@ class _InputMessageState extends State<InputMessage> {
   Widget build(BuildContext context) {
     return Container(
       color: Colors.transparent,
-      margin: EdgeInsets.only(bottom: 20,left: 30,right: 20),
-      //height: 61,
+      margin: const EdgeInsets.only(bottom: 20,left: 30,right: 20),
+
       child: Column(
         children: [
           Row(
@@ -62,7 +62,7 @@ class _InputMessageState extends State<InputMessage> {
                     decoration: BoxDecoration(
                       color: Colors.white,
                       borderRadius: BorderRadius.circular(35.0),
-                      boxShadow: [
+                      boxShadow: const [
                         BoxShadow(
                             offset: Offset(0, 3),
                             blurRadius: 5,
@@ -74,7 +74,7 @@ class _InputMessageState extends State<InputMessage> {
                         //expands: true,
                         //scribbleEnabled: ,
                       //enabled: emojiShowing = false,
-                       style: TextStyle(
+                       style: const TextStyle(
                          decorationColor: Colors.grey,
                          //: false,
                             fontSize: 20.0, color: Colors.black),
@@ -95,7 +95,7 @@ class _InputMessageState extends State<InputMessage> {
                           ),
 
                             hintText: "Mensagem...",
-                            hintStyle: TextStyle( fontSize: 20,color:Colors.blueGrey,),
+                            hintStyle: const TextStyle( fontSize: 20,color:Colors.blueGrey,),
                             border: InputBorder.none),
                         controller: controller,
                         maxLines: 1,
@@ -114,7 +114,7 @@ class _InputMessageState extends State<InputMessage> {
                   ),
                 ),
               ),
-              SizedBox(width: 10,),
+              const SizedBox(width: 10,),
               IconButton(
                 onPressed: () {
                   emojiShowing = false;

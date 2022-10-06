@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
-
-
 import '../configuration/user_config.dart';
 import '../entities/message_entity.dart';
 import 'message_from.dart';

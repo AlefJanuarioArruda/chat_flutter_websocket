@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import 'dart:convert';
-import 'package:http/http.dart' as http;
 import 'package:animate_do/animate_do.dart';
 import '../../configuration/user_config.dart';
 import '../../services/home_service.dart';
@@ -16,8 +14,8 @@ class Mensagem_Page extends StatefulWidget {
 
 
 class _Mensagem_PageState extends State<Mensagem_Page> {
-//Adding the main color of the app
-  var containerRadius = Radius.circular(30.0);
+
+  var containerRadius = const Radius.circular(30.0);
 
   @override
   Widget build(BuildContext context) {
@@ -25,9 +23,9 @@ class _Mensagem_PageState extends State<Mensagem_Page> {
 
       backgroundColor: Colors.blue[900],
       appBar: AppBar(title: FadeInUp(
-          duration: Duration(milliseconds: 1000),
-          delay: Duration(milliseconds: 500),
-          child: Text("Selecione um Usuario",style: TextStyle(color: Colors.white),)),backgroundColor: Colors.transparent,
+          duration: const Duration(milliseconds: 1000),
+          delay: const Duration(milliseconds: 500),
+          child: const Text("Selecione um Usuario",style: TextStyle(color: Colors.white),)),backgroundColor: Colors.transparent,
         elevation: 30,
         automaticallyImplyLeading: false,
       ),
@@ -37,16 +35,16 @@ class _Mensagem_PageState extends State<Mensagem_Page> {
           builder: (BuildContext context,AsyncSnapshot snapshot) {
             if (snapshot.data == null) {
               return FadeInUp(
-                duration: Duration(milliseconds: 1000),
-                delay: Duration(milliseconds: 500),
+                duration: const Duration(milliseconds: 1000),
+                delay: const Duration(milliseconds: 500),
                 child: Center(
                   child:
 
                       Container(
-    padding: EdgeInsets.only(top: 10),
+                          padding: const EdgeInsets.only(top: 10),
                           width: 100,
                           height: 100,
-                          child: CircularProgressIndicator(color: Colors.black87)),
+                          child: const CircularProgressIndicator(color: Colors.black87)),
 
 
                 ),
@@ -57,10 +55,10 @@ class _Mensagem_PageState extends State<Mensagem_Page> {
                   child: Column(
                     children: [
                       FadeInUp(
-                        duration: Duration(milliseconds: 1000),
-                        delay: Duration(milliseconds: 500),
+                        duration: const Duration(milliseconds: 1000),
+                        delay: const Duration(milliseconds: 500),
                         child: Padding(
-                          padding: EdgeInsets.only(top: 50,left: 16,right: 16),
+                          padding: const EdgeInsets.only(top: 50,left: 16,right: 16),
                           child: TextField(
                             decoration: InputDecoration(
                               border: OutlineInputBorder(borderRadius: BorderRadius.circular(20),
@@ -72,7 +70,7 @@ class _Mensagem_PageState extends State<Mensagem_Page> {
                               prefixIcon: Icon(Icons.search,color: Colors.grey.shade600, size: 20,),
                               filled: true,
                               fillColor: Colors.grey.shade100,
-                              contentPadding: EdgeInsets.all(8),
+                              contentPadding: const EdgeInsets.all(8),
                               enabledBorder: OutlineInputBorder(
                                   borderRadius: BorderRadius.circular(20),
                                   borderSide: BorderSide(
@@ -87,15 +85,15 @@ class _Mensagem_PageState extends State<Mensagem_Page> {
                         padding: const EdgeInsets.only(left: 30,right: 30,top: 50,bottom: 10),
                         child: Row(
                           children: [
-                            Text("Username",style: TextStyle(fontSize: 15,fontWeight: FontWeight.w700,color: Colors.white),),
+                            const Text("Username",style: TextStyle(fontSize: 15,fontWeight: FontWeight.w700,color: Colors.white),),
                             SizedBox(width: MediaQuery.of(context).size.width/1.6,),
-                            Text("Id",style: TextStyle(fontSize: 15,fontWeight: FontWeight.w700,color: Colors.white),),
+                            const Text("Id",style: TextStyle(fontSize: 15,fontWeight: FontWeight.w700,color: Colors.white),),
                           ],
                         ),
                       ),
                       FadeInUp(
-                      duration: Duration(milliseconds: 1000),
-                      delay: Duration(milliseconds: 500),
+                      duration: const Duration(milliseconds: 1000),
+                      delay: const Duration(milliseconds: 500),
                       child: Padding(
                         padding: const EdgeInsets.only(top: 0),
                         child: Container(
@@ -114,9 +112,7 @@ class _Mensagem_PageState extends State<Mensagem_Page> {
                                 padding: const EdgeInsets.only(top: 8,right: 25),
                                 itemCount: snapshot.data!.length,
                                 itemBuilder: (context, index) {
-                                  // final user = snapshot.data![index].get<ParseUser>('to')
-                                  //     as ParseUser;
-                                  // final foto = user.get('photoUser');
+
                                   return SingleChildScrollView(
                                     child: Column(
                                       children: [
@@ -152,21 +148,8 @@ class _Mensagem_PageState extends State<Mensagem_Page> {
                                                         mainAxisAlignment:
                                                         MainAxisAlignment.start,
                                                         children: [
-                                                          // HexagonWidget.pointy(
-                                                          //     width: 50,
-                                                          //     color: Colors.black,
-                                                          //     elevation: 8,
-                                                          //     child: Container(
-                                                          //       // decoration: BoxDecoration(
-                                                          //       //     image:
-                                                          //       //         DecorationImage(
-                                                          //       //   image: NetworkImage(
-                                                          //       //     foto.url,
-                                                          //       //   ),
-                                                          //       //   fit: BoxFit.cover,
-                                                          //       // )),
-                                                          //     )),
-                                                          SizedBox(
+
+                                                          const SizedBox(
                                                             width: 8.0,
                                                           ),
                                                           Expanded(
@@ -182,11 +165,11 @@ class _Mensagem_PageState extends State<Mensagem_Page> {
                                                                     Expanded(
                                                                       child:
                                                                       FadeInUp(
-                                                                        duration: Duration(milliseconds: 1000),
-                                                                        delay: Duration(milliseconds: 500),
+                                                                        duration: const Duration(milliseconds: 1000),
+                                                                        delay: const Duration(milliseconds: 500),
                                                                         child: Text(
                                                                             '${snapshot.data![index].username}',
-                                                                            style: TextStyle(
+                                                                            style: const TextStyle(
                                                                               fontSize: 18.0,
                                                                               fontWeight:
                                                                               FontWeight
@@ -197,12 +180,12 @@ class _Mensagem_PageState extends State<Mensagem_Page> {
                                                                       ),
 
                                                                     FadeInUp(
-                                                                        duration: Duration(milliseconds: 1100),
-                                                                        delay: Duration(milliseconds: 500),
+                                                                        duration: const Duration(milliseconds: 1100),
+                                                                        delay: const Duration(milliseconds: 500),
                                                                         child: Text('${snapshot.data[index].id}')),
                                                                   ],
                                                                 ),
-                                                                SizedBox(
+                                                                const SizedBox(
                                                                   height: 5.0,
                                                                 ),
                                                               ],

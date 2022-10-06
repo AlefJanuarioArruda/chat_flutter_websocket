@@ -1,7 +1,4 @@
-import 'dart:convert';
-
 import 'package:flutter/material.dart';
-import 'package:http/http.dart' as http;
 import '../../components/input_message.dart';
 import '../../components/list_message.dart';
 import 'controllers/chat_controller.dart';
@@ -45,12 +42,12 @@ class _ChatPageState extends State<ChatPage> {
       appBar: AppBar(
         backgroundColor: Colors.blue[900],
         centerTitle: true,
-        title: Text(
+        title: const Text(
           'Dashboard',
           style:
               TextStyle(fontSize: 17, color: Colors.white, letterSpacing: 0.53),
         ),
-        shape: RoundedRectangleBorder(
+        shape: const RoundedRectangleBorder(
           borderRadius: BorderRadius.vertical(
             bottom: Radius.circular(30),
           ),
@@ -59,7 +56,7 @@ class _ChatPageState extends State<ChatPage> {
           onTap: () {
             Navigator.pop(context);
           },
-          child: Icon(
+          child: const Icon(
             Icons.subject,
             color: Colors.white,
           ),
@@ -67,8 +64,8 @@ class _ChatPageState extends State<ChatPage> {
         actions: [
           InkWell(
             onTap: () {},
-            child: Padding(
-              padding: const EdgeInsets.all(8.0),
+            child: const Padding(
+              padding: EdgeInsets.all(8.0),
               child: Icon(
                 Icons.notifications,
                 size: 20,
@@ -77,7 +74,7 @@ class _ChatPageState extends State<ChatPage> {
           ),
         ],
         bottom: PreferredSize(
-            child: Center(child: getAppBottomView()), preferredSize: Size.fromHeight(110.0)),
+            child: Center(child: getAppBottomView()), preferredSize: const Size.fromHeight(110.0)),
       ),
       body: Column(
         children: [
@@ -101,32 +98,32 @@ class _ChatPageState extends State<ChatPage> {
   }
   Widget getAppBottomView() {
     return Container(
-      padding: EdgeInsets.only(left: 30, bottom: 20),
+      padding: const EdgeInsets.only(left: 30, bottom: 20),
       child: Row(
         children: [
           getProfileView(),
           Container(
-            margin: EdgeInsets.only(left: 20),
+            margin: const EdgeInsets.only(left: 20),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
                   widget.username,
-                  style: TextStyle(
+                  style: const TextStyle(
                       fontSize: 22,
                       fontWeight: FontWeight.w700,
                       color: Colors.white),
                 ),
                 Text(
                   widget.email,
-                  style: TextStyle(
+                  style: const TextStyle(
                     fontSize: 13,
                     color: Colors.white,
                   ),
                 ),
                 Text(
                   widget.phone,
-                  style: TextStyle(
+                  style: const TextStyle(
                     fontSize: 13,
                     color: Colors.white,
                   ),
@@ -143,7 +140,7 @@ class _ChatPageState extends State<ChatPage> {
 Widget getProfileView() {
   return Stack(
     children: [
-      CircleAvatar(
+      const CircleAvatar(
         radius: 32,
         backgroundColor: Colors.white,
         child: Icon(Icons.person_outline_rounded),

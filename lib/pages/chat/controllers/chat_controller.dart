@@ -1,6 +1,4 @@
-
 import 'package:mobx/mobx.dart';
-
 import '../../../configuration/user_config.dart';
 import '../../../entities/message_entity.dart';
 import '../../../services/message_service.dart';

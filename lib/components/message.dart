@@ -29,7 +29,7 @@ class MessageWidget extends StatelessWidget {
               fontSize: 18,
             ),
           ),
-          SizedBox(height: 10,),
+          const SizedBox(height: 10,),
           Text(
             message,
             style: const TextStyle(fontSize: 16,color: Colors.white),

@@ -3,8 +3,7 @@ import 'package:http/http.dart' as http;
 import '../services/Encode/Encripyt.dart';
 
 
-Future PostWeb(
-    id, email, username, mensagem, city, phone, zipcode, website) async {
+Future PostWeb(id, email, username, mensagem, city, phone, zipcode, website) async {
   String Api = Encode().decodeUSerServices();
   Uri uri =
   Uri.parse(Api);

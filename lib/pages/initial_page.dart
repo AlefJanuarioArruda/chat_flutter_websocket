@@ -1,5 +1,4 @@
 import 'package:animate_do/animate_do.dart';
-import 'package:chat_flutter_websocket/pages/chat/chat_page.dart';
 import 'package:chat_flutter_websocket/pages/chat/home_mensager.dart';
 import 'package:flutter/material.dart';
 import 'package:lottie/lottie.dart';
@@ -16,23 +15,23 @@ class Initial_Page extends StatelessWidget {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
-            SizedBox(
+            const SizedBox(
               height: 50,
             ),
             FadeInRight(
-              duration: Duration(milliseconds: 1500),
+              duration: const Duration(milliseconds: 1500),
               child: Lottie.network(
                   'https://assets3.lottiefiles.com/packages/lf20_5ooerq0v.json',
                   fit: BoxFit.cover),
             ),
             FadeInUp(
-              duration: Duration(milliseconds: 1000),
-              delay: Duration(milliseconds: 500),
+              duration: const Duration(milliseconds: 1000),
+              delay: const Duration(milliseconds: 500),
               child: Container(
                 padding:
-                EdgeInsets.only(bottom: 50, left: 40, top: 40, right: 20),
+                const EdgeInsets.only(bottom: 50, left: 40, top: 40, right: 20),
                 width: double.infinity,
-                decoration: BoxDecoration(
+                decoration: const BoxDecoration(
                   color: Colors.white,
                   borderRadius: BorderRadius.only(
                       topLeft: Radius.circular(30),
@@ -42,9 +41,9 @@ class Initial_Page extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     FadeInUp(
-                      duration: Duration(milliseconds: 1000),
-                      delay: Duration(milliseconds: 500),
-                      child: Text(
+                      duration: const Duration(milliseconds: 1000),
+                      delay: const Duration(milliseconds: 500),
+                      child: const Text(
                         "Sejá Bem Vindo",
                         style: TextStyle(
                             fontSize: 24,
@@ -52,12 +51,12 @@ class Initial_Page extends StatelessWidget {
                             color: Colors.black),
                       ),
                     ),
-                    SizedBox(
+                    const SizedBox(
                       height: 15,
                     ),
                     FadeInUp(
-                      duration: Duration(milliseconds: 1000),
-                      delay: Duration(milliseconds: 500),
+                      duration: const Duration(milliseconds: 1000),
+                      delay: const Duration(milliseconds: 500),
                       child: Text(
                         "",
                         style: TextStyle(
@@ -66,12 +65,12 @@ class Initial_Page extends StatelessWidget {
                             color: Colors.grey.shade600),
                       ),
                     ),
-                    SizedBox(
+                    const SizedBox(
                       height: 20,
                     ),
                     FadeInUp(
-                      duration: Duration(milliseconds: 1000),
-                      delay: Duration(milliseconds: 500),
+                      duration: const Duration(milliseconds: 1000),
+                      delay: const Duration(milliseconds: 500),
                       child: Align(
                           alignment: Alignment.bottomRight,
                           child: Container(
@@ -82,9 +81,9 @@ class Initial_Page extends StatelessWidget {
                                         context,
                                         MaterialPageRoute(
                                             builder: (context) =>
-                                                Mensagem_Page()));
+                                                const Mensagem_Page()));
                                   },
-                                  child: Text(
+                                  child: const Text(
                                     "Clique para Iniciar",
                                     style: TextStyle(
                                         color: Colors.blue, fontSize: 16),
