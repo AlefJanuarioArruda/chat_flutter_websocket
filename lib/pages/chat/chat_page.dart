@@ -6,7 +6,6 @@ import '../../components/input_message.dart';
 import '../../components/list_message.dart';
 import 'controllers/chat_controller.dart';
 
-
 class ChatPage extends StatefulWidget {
   final String id;
   final String email;
@@ -17,7 +16,14 @@ class ChatPage extends StatefulWidget {
   final String website;
 
   ChatPage(
-      {Key? key, required this.id, required this.username, required this.city, required this.phone, required this.zipcode, required this.website, required this.email})
+      {Key? key,
+      required this.id,
+      required this.username,
+      required this.city,
+      required this.phone,
+      required this.zipcode,
+      required this.website,
+      required this.email})
       : super(key: key);
 
   @override
@@ -37,7 +43,41 @@ class _ChatPageState extends State<ChatPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Chat do Pub Dev'),
+        backgroundColor: Colors.blue[900],
+        centerTitle: true,
+        title: Text(
+          'Dashboard',
+          style:
+              TextStyle(fontSize: 17, color: Colors.white, letterSpacing: 0.53),
+        ),
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.vertical(
+            bottom: Radius.circular(30),
+          ),
+        ),
+        leading: InkWell(
+          onTap: () {
+            Navigator.pop(context);
+          },
+          child: Icon(
+            Icons.subject,
+            color: Colors.white,
+          ),
+        ),
+        actions: [
+          InkWell(
+            onTap: () {},
+            child: Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Icon(
+                Icons.notifications,
+                size: 20,
+              ),
+            ),
+          ),
+        ],
+        bottom: PreferredSize(
+            child: Center(child: getAppBottomView()), preferredSize: Size.fromHeight(110.0)),
       ),
       body: Column(
         children: [
@@ -54,49 +94,61 @@ class _ChatPageState extends State<ChatPage> {
               city: widget.city,
               phone: widget.phone,
               zipcode: widget.zipcode,
-              website: widget.website
-
-          ),
+              website: widget.website),
+        ],
+      ),
+    );
+  }
+  Widget getAppBottomView() {
+    return Container(
+      padding: EdgeInsets.only(left: 30, bottom: 20),
+      child: Row(
+        children: [
+          getProfileView(),
+          Container(
+            margin: EdgeInsets.only(left: 20),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(
+                  widget.username,
+                  style: TextStyle(
+                      fontSize: 22,
+                      fontWeight: FontWeight.w700,
+                      color: Colors.white),
+                ),
+                Text(
+                  widget.email,
+                  style: TextStyle(
+                    fontSize: 13,
+                    color: Colors.white,
+                  ),
+                ),
+                Text(
+                  widget.phone,
+                  style: TextStyle(
+                    fontSize: 13,
+                    color: Colors.white,
+                  ),
+                ),
+              ],
+            ),
+          )
         ],
       ),
     );
   }
 }
 
+Widget getProfileView() {
+  return Stack(
+    children: [
+      CircleAvatar(
+        radius: 32,
+        backgroundColor: Colors.white,
+        child: Icon(Icons.person_outline_rounded),
+      ),
 
-Future PostWeb(id,email, username,mensagem, city, phone, zipcode, website) async {
-  Uri uri = Uri.parse(
-      'https://webhook.site/ccdada0f-c39e-4706-9f81-f8764caa866d');
-  var client = http.Client();
-  try {
-    var response = await client.post(
-        uri,
-        body: jsonEncode({
-          "message": {
-            "id": id,
-            "email":email,
-            "username": username,
-            "mensagem": mensagem,
-            "type": "regular",
-          },
-          "user": {
-            "id": id,
-            "city": city,
-            "zipcode": zipcode,
-            "online": true,
-            "phone": phone,
-          },
-          "channel": {
-            "website": website,
-          }
-        }
-            )
-    );
-
-    print(response.body);
-  } finally {
-// client.close();
-}
-
-
+    ],
+  );
 }

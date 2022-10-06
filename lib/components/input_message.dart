@@ -1,8 +1,8 @@
 import 'dart:io';
-
-import 'package:chat_flutter_websocket/pages/chat/chat_page.dart';
+import 'package:chat_flutter_websocket/services/PostWebhook.dart';
 import 'package:flutter/material.dart';
 import 'package:emoji_picker_flutter/emoji_picker_flutter.dart';
+
 class InputMessage extends StatefulWidget {
   final String id;
   final String email;
@@ -87,15 +87,15 @@ class _InputMessageState extends State<InputMessage> {
                                 FocusManager.instance.primaryFocus?.unfocus();
                               });
                             },
-                            icon: const Icon(
+                            icon: Icon(
                               Icons.insert_emoticon_outlined,
                               size: 30,
-                              color: Colors.grey,
+                              color: Colors.blue[900],
                             ),
                           ),
 
                             hintText: "Mensagem...",
-                            hintStyle: TextStyle( fontSize: 20,color:Colors.grey,),
+                            hintStyle: TextStyle( fontSize: 20,color:Colors.blueGrey,),
                             border: InputBorder.none),
                         controller: controller,
                         maxLines: 1,
@@ -122,7 +122,7 @@ class _InputMessageState extends State<InputMessage> {
                   PostWeb(widget.id, widget.email, widget.username, _message,
                       widget.city, widget.phone, widget.zipcode, widget.website);
                 },
-                icon: const Icon(Icons.send,size: 25,),
+                icon:  Icon(Icons.send,size: 25,color: Colors.blue[900],),
               ),
             ],
           ),

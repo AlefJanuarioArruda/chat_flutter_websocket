@@ -23,13 +23,16 @@ class MessageWidget extends StatelessWidget {
           Text(
             name,
             style: const TextStyle(
+              //backgroundColor: Colors.white,
+              color: Colors.white,
               fontWeight: FontWeight.bold,
               fontSize: 18,
             ),
           ),
+          SizedBox(height: 10,),
           Text(
             message,
-            style: const TextStyle(fontSize: 14),
+            style: const TextStyle(fontSize: 16,color: Colors.white),
           ),
         ],
       ),
@@ -49,16 +52,16 @@ class _MessageContainer extends Container {
   }) : super(
           child: child,
           decoration: messageDirection == MessageDirection.from
-              ? const BoxDecoration(
-                  color: Colors.amberAccent,
-                  borderRadius: BorderRadius.only(
+              ?  BoxDecoration(
+                  color: Colors.blue[900],
+                  borderRadius: const BorderRadius.only(
                     bottomLeft: Radius.circular(20),
                     topLeft: Radius.circular(20),
                     topRight: Radius.circular(20),
                   ),
                 )
               : const BoxDecoration(
-                  color: Color.fromARGB(255, 74, 200, 220),
+                  color: Colors.black,
                   borderRadius: BorderRadius.only(
                     bottomRight: Radius.circular(20),
                     topLeft: Radius.circular(20),

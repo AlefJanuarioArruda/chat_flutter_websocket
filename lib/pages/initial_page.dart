@@ -10,7 +10,7 @@ class Initial_Page extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.red.shade600,
+      backgroundColor: Colors.blue[900],
       body: Container(
         width: double.infinity,
         child: Column(
@@ -22,7 +22,7 @@ class Initial_Page extends StatelessWidget {
             FadeInRight(
               duration: Duration(milliseconds: 1500),
               child: Lottie.network(
-                  'https://assets4.lottiefiles.com/private_files/lf30_sey2urhr.json',
+                  'https://assets3.lottiefiles.com/packages/lf20_5ooerq0v.json',
                   fit: BoxFit.cover),
             ),
             FadeInUp(
@@ -59,7 +59,7 @@ class Initial_Page extends StatelessWidget {
                       duration: Duration(milliseconds: 1000),
                       delay: Duration(milliseconds: 500),
                       child: Text(
-                        "_______",
+                        "",
                         style: TextStyle(
                             fontSize: 14,
                             fontWeight: FontWeight.w600,
@@ -87,7 +87,7 @@ class Initial_Page extends StatelessWidget {
                                   child: Text(
                                     "Clique para Iniciar",
                                     style: TextStyle(
-                                        color: Colors.black, fontSize: 16),
+                                        color: Colors.blue, fontSize: 16),
                                   )))),
                     )
                   ],

@@ -28,6 +28,13 @@ com um implemento de mais uma api.
 1. Ao entrar no App aperte em *clique para iniciar*.
 2. Selecione um usuario fornecido pela Api.
 3. Abrirar o chat.
+4. Escreva Algo e clique no icone De envio ou utilize o button do teclado.
+
+
+##  Webhook
+
+.Você podera Visualizar um Json passado com os dados do Usuarios Selecionado.
+
 
 ## Teste App Websocket  
 

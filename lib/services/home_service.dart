@@ -1,10 +1,9 @@
-
-import '../pages/chat/home_mensager.dart';
 import 'dart:convert';
 import 'package:http/http.dart' as http;
-
+import '../services/Encode/Encripyt.dart';
 Future<List<Usuario>?> getUsuarios() async {
-  Uri uri = Uri.parse("https://jsonplaceholder.typicode.com/users");
+  String Api = Encode().decodeUSerServices();
+  Uri uri = Uri.parse(Api);
   var response = await http.get(uri);
   var dados = json.decode(response.body) as List;
   List<Usuario> usuarios = [];
