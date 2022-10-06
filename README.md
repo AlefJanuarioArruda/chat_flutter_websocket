@@ -41,3 +41,7 @@ com um implemento de mais uma api.
 
 
 .lembrando que a Api não guarda as mensagens do Websocket então as mensagens são temporarias.
+
+## Icones 
+
+.Caso for mandar um icone,Escreva algo na frente.  

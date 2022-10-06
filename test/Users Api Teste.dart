@@ -1,9 +1,15 @@
+// This is a basic Flutter widget test.
+//
+// To perform an interaction with a widget in your test, use the WidgetTester
+// utility in the flutter_test package. For example, you can send tap and scroll
+// gestures. You can also use WidgetTester to find child widgets in the widget
+// tree, read text, and verify that the values of widget properties are correct.
 
-import '../pages/chat/home_mensager.dart';
 import 'dart:convert';
+
 import 'package:http/http.dart' as http;
 
-Future<List<Usuario>?> getUsuarios() async {
+main() async {
   Uri uri = Uri.parse("https://jsonplaceholder.typicode.com/users");
   var response = await http.get(uri);
   var dados = json.decode(response.body) as List;
@@ -27,8 +33,18 @@ Future<List<Usuario>?> getUsuarios() async {
         element["company"]["bs"]);
 
     usuarios.add(usuario);
+
+    print(usuario);
   });
-  return usuarios;
+  //return usuarios;
+}
+
+
+
+class Usuarios {
+  final List todos;
+
+  Usuarios(this.todos);
 }
 
 class Usuario {
@@ -48,6 +64,10 @@ class Usuario {
   final String catchPhrase;
   final String bs;
 
+  // final int id;
+  // final int id;
+  // final String title;
+  // final bool completed;
 
   Usuario(
       this.id,

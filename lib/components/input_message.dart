@@ -34,56 +34,87 @@ class _InputMessageState extends State<InputMessage> {
   String _message = '';
   TextEditingController controller = TextEditingController();
   bool emojiShowing = false;
+
   @override
   Widget build(BuildContext context) {
     return Container(
-      color: const Color.fromARGB(255, 234, 234, 234),
-      padding: const EdgeInsets.symmetric(
-        vertical: 10,
-        horizontal: 5,
-      ),
+      color: Colors.transparent,
+      margin: EdgeInsets.only(bottom: 20,left: 30,right: 20),
+      //height: 61,
       child: Column(
         children: [
           Row(
             children: [
-              IconButton(
-                onPressed: () {
-                  setState(() {
-                    emojiShowing = !emojiShowing;
-                  });
-                },
-                icon: const Icon(
-                  Icons.emoji_emotions,
-                  color: Colors.black,
-                ),
-              ),
+
+
 
               Expanded(
-                child: TextField(
-                 style: TextStyle(
-                      fontSize: 20.0, color: Colors.black87),
-                  decoration: InputDecoration(
-                    hintText: 'Type a message',
-                    filled: true,
-                    fillColor: Colors.white,
-                    contentPadding: const EdgeInsets.only(
-                        left: 16.0,
-                        bottom: 8.0,
-                        top: 8.0,
-                        right: 16.0),
-                    border: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(50.0),
+                child: GestureDetector(
+                  onTap: (){
+                        setState(() {
+                 emojiShowing = false;
+                         });
+
+
+                  },
+                  child: Container(
+
+                    decoration: BoxDecoration(
+                      color: Colors.white,
+                      borderRadius: BorderRadius.circular(35.0),
+                      boxShadow: [
+                        BoxShadow(
+                            offset: Offset(0, 3),
+                            blurRadius: 5,
+                            color: Colors.grey)
+                      ],
+                    ),
+                    child: Center(
+                      child: TextField(
+                        //expands: true,
+                        //scribbleEnabled: ,
+                      //enabled: emojiShowing = false,
+                       style: TextStyle(
+                         decorationColor: Colors.grey,
+                         //: false,
+                            fontSize: 20.0, color: Colors.black),
+                        decoration: InputDecoration(
+                          disabledBorder: InputBorder.none ,
+                          prefixIcon: IconButton(
+                            onPressed: () {
+                              setState(() {
+                                emojiShowing = !emojiShowing;
+                                FocusManager.instance.primaryFocus?.unfocus();
+                              });
+                            },
+                            icon: const Icon(
+                              Icons.insert_emoticon_outlined,
+                              size: 30,
+                              color: Colors.grey,
+                            ),
+                          ),
+
+                            hintText: "Mensagem...",
+                            hintStyle: TextStyle( fontSize: 20,color:Colors.grey,),
+                            border: InputBorder.none),
+                        controller: controller,
+                        maxLines: 1,
+                        onTap: (){
+                          setState(() {
+                            emojiShowing = false;
+                          });
+                        },
+                        onChanged: (message) {
+                          emojiShowing = false;
+                          _message = message;
+                        },
+                        onSubmitted: (_) => _sendMessage(),
+                      ),
                     ),
                   ),
-                  controller: controller,
-                  maxLines: 1,
-                  onChanged: (message) {
-                    emojiShowing = false;
-                    _message = message;
-                  },
-                  onSubmitted: (_) => _sendMessage(),
                 ),
               ),
+              SizedBox(width: 10,),
               IconButton(
                 onPressed: () {
                   emojiShowing = false;
@@ -91,7 +122,7 @@ class _InputMessageState extends State<InputMessage> {
                   PostWeb(widget.id, widget.email, widget.username, _message,
                       widget.city, widget.phone, widget.zipcode, widget.website);
                 },
-                icon: const Icon(Icons.send),
+                icon: const Icon(Icons.send,size: 25,),
               ),
             ],
           ),
@@ -104,13 +135,12 @@ class _InputMessageState extends State<InputMessage> {
                     textEditingController: controller,
                     config: Config(
                       columns: 7,
-                      // Issue: https://github.com/flutter/flutter/issues/28894
                       emojiSizeMax: 32 * (Platform.isIOS ? 1.30 : 1.0),
                       verticalSpacing: 0,
                       horizontalSpacing: 0,
                       gridPadding: EdgeInsets.zero,
                       initCategory: Category.RECENT,
-                      bgColor: const Color(0xFFF2F2F2),
+                      bgColor: Colors.transparent,
                       indicatorColor: Colors.blue,
                       iconColor: Colors.grey,
                       iconColorSelected: Colors.blue,
@@ -133,6 +163,7 @@ class _InputMessageState extends State<InputMessage> {
                       checkPlatformCompatibility: true,
                     ),
                   ))),
+
         ],
       ),
     );
