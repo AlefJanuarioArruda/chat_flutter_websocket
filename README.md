@@ -32,7 +32,8 @@ com um implemento de mais uma api.
 
 
 ##  Webhook
-
+.No Site Webhook.site.
+.Metodo Post.
 .Você podera Visualizar um Json passado com os dados do Usuarios Selecionado.
 
 
